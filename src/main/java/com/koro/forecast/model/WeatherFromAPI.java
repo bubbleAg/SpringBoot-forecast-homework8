@@ -15,8 +15,16 @@ public class WeatherFromAPI {
     @JsonProperty("woeid")
     private Integer cityId;
 
-//    @JsonIgnore
-//    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    public Weather toWeather() {
+        Weather weather = new Weather();
+        weather.setTime(time);
+        weather.setCity(city);
+        weather.setCityId(cityId);
+        ConsolidatedWeatherFromAPI actualData = consolidatedWeather.get(0);
+        weather.setWeatherStateName(actualData.getWeatherStateName());
+        weather.setTheTemp(actualData.getTheTemp());
+        return weather;
+    }
 
     @JsonProperty("consolidated_weather")
     public List<ConsolidatedWeatherFromAPI> getConsolidatedWeather() {
@@ -57,6 +65,4 @@ public class WeatherFromAPI {
     public void setCityId(Integer cityId) {
         this.cityId = cityId;
     }
-
-
 }
