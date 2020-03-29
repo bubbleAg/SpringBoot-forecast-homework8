@@ -1,4 +1,4 @@
-package com.koro.forecasthomework8;
+package com.koro.forecast;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
