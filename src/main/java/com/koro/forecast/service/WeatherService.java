@@ -23,10 +23,8 @@ public class WeatherService {
 
     private WeatherFromAPI getWeatherAPI() {
         RestTemplate restTemplate = new RestTemplate();
-        WeatherFromAPI weather = new WeatherFromAPI();
         String url = BASE_URL.concat("api/location/").concat(CITY_ID.toString());
-        weather =restTemplate.getForObject(url, WeatherFromAPI.class);
-        return weather;
+        return restTemplate.getForObject(url, WeatherFromAPI.class);
     }
 
     @Scheduled(cron = "0 0 * ? * *")
